@@ -1,0 +1,50 @@
+DETAILED PARTS LIST
+ELEGOO UNO R3 (x1) - Microcontroller controlling all electrical components.
+1. Push Button (x3) - Takes user input to switch different patterns
+2. 100µF Capacitor (x1) - Smoothes out voltage signal for 12V power supply
+3. 840 Tie Point Breadboard (x2) - Allows for electrical components with header pins to be connected to different circuits.
+4. Speaker Module (x1) - Plays calming meditation music 
+5. Adjustable LED Light Strip (x1) - Provides aesthetic light in RGB color.
+6. 12V 3A DC Power Supply (x1) - Powers the Stepper Motors and Arduino
+7. 5V 6A DC Power Supply (x1) - Powers the servo, LCD, buttons, and stepper motor drivers.
+8. SG90 Servo Motor (x1) - Pushes the button for the speaker module
+9. 20 x 4 I2C LCD (x1) - Displays different pattern options for the user 
+10. TMC2209 Stepper Motor Driver (x2) - Controls the motion of the stepper motors
+11. Nema 17 Stepper Motor 40mm (x1) - Actuates the first robotic body, moving the second robotic body.
+12. Nema 17 Stepper Motor 23mm (x1) - Actuates the second robotic body, moving the end effector.
+13. Neodymium Magnet (x1) - Attracts steel ball bearing through table top.
+14. Slip Ring (x1) - Enables electrical connection of 2nd Nema 17 stepper on the full 360° rotating body without entanglement.
+15. M3 Threaded Inserts (x9) - Allows for M3 fasteners to be screwed into 3D printed parts.
+16. M3 Screws (x27) - Securing bearing, electronics, and motor fixtures to parts.
+17. M3 Nuts (x7) - Securing slip ring to central bearing.
+18. Steel Bearing Balls (x13) - (12) For construction of central bearing assembly; (1) To be dragged through the sand to create patterns by the robotic arm.
+19. Loctite Super Glue (x2) - To bond 3D printed components together
+20. Female DC Barrel Jack Connecter (x2) - To connect power supplies to the circuit.
+21. PLA Filament 1 KG Spool (x3) - For 3D printing components 
+22. Electrical tape (x1) - To keep components and wires fixed in place
+23. Sieved Beach Sand (x1) - Substrate for sand patterns
+
+Links
+1-4, 9: https://a.co/d/04YNSiRq ($44.99)
+5: https://a.co/d/0jm6phjS ($12.99)
+6: https://www.ikea.com/us/en/p/kabbleka-led-lighting-strip-with-usb-adjustable-color-20609718/ ($19.99)
+7: https://a.co/d/00AO3cj2 ($9.99)
+8: https://a.co/d/01NPZHTp ($12.69)
+10: https://a.co/d/0dfkrPCD ($16.48)
+11: https://a.co/d/0if4e8SK ($26.59)
+12: https://a.co/d/0b3IBnqT ($11.10)
+13: https://a.co/d/05bD2LMu ($10.49) 
+14: https://a.co/d/03ONXgGd ($19.99)
+15: https://a.co/d/08oIDcha ($9.99)
+16: https://a.co/d/0b6anpA1 ($9.99)
+17, 18: https://a.co/d/06MBqMBc ($21.65)
+19: https://a.co/d/09csyyXY ($8.99)
+20: https://a.co/d/0cUBfFDG ($12.99)
+21: https://a.co/d/07Iui98B ($5.50)
+22: https://a.co/d/0djrytlb ($60.00)
+
+Total
+$314.41
+
+
+
