@@ -1,0 +1,49 @@
+References and Sources:
+
+For LCD:
+LCD i2C Tutorial (MAINLY USED THIS) → Assisted with coding for LCD text display
+
+These sources were used for the prototype:
+Liquid Crystal Displays (LCD) with Arduino
+- https://docs.arduino.cc/learn/electronics/lcd-displays/
+Displaying Characters Using Liquid i2c Display
+- https://www.arduinointro.com/articles/projects/displaying-characters-using-the-i2c-liquid-crystal-display-lcd
+Code Tutorial
+- https://www.youtube.com/watch?v=_Rv8S7v6k_g
+
+For Stepper Motor:
+Stepper Motor Control Code
+- https://youtu.be/d-u_mzvw_eY?si=EkiZDb1Mze27SOf9
+Moving 2 Stepper Motors Simultaneous
+- https://forum.arduino.cc/t/controlling-2-stepper-motors-simultaneously-accelstepper-library/94578/2
+AccelStepper Code
+- https://forum.arduino.cc/t/accelstepper-code-how-to-control-two-motors-simultaneously/1092818
+Driving 2 Stepper Motors Simultaneously
+- https://www.youtube.com/watch?v=nw8XaPs8qSs
+Inverse Kinematics of a 2 DOF Arm
+- https://youtu.be/5kVGvovp9Sw?si=MxswMou8CsdutW5j
+Running 2 Stepper Motors Simultaneously
+- https://forum.arduino.cc/t/running-2-steppers-synchronously/307753/3
+How to mechatronics stepper motor guide
+- https://www.youtube.com/watch?v=7spK_BkMJys
+
+Servo Motor:
+ELEGEE Manual
+
+Arduino Documentation: https://docs.arduino.cc/
+- Liquid Crystal i2c https://docs.arduino.cc/libraries/liquidcrystal-i2c/
+Servo https://docs.arduino.cc/libraries/servo/
+Stepper https://docs.arduino.cc/libraries/stepper/
+
+Soundtrack:
+The Metamorphosis Music Soundtrack
+- https://www.youtube.com/watch?v=QeZne1wVyl0&list=RDQeZne1wVyl0&start_radio=1
+Zen Blossoms Music Soundtrack
+- https://www.youtube.com/watch?v=EkFCrAIqaGs&list=RDTCp2BS_L0yE&index=14
+The Deep Music Soundtrack
+- https://www.youtube.com/watch?v=TCp2BS_L0yE&list=RDTCp2BS_L0yE&start_radio=1
+
+Equations for 2 DOF arm:
+- https://www.desmos.com/calculator/tjqus1rlf7
+Note: The robotic arm moves based on speed/rpm. The spiral equations come from taking the first derivative of the equations in this source (dx/dt)
+
