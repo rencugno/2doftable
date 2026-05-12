@@ -1,0 +1,203 @@
+#include <Servo.h>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+
+
+
+
+
+
+
+//Arduino Stepper Motor Setup Code (Kevin)
+#define dirPin1 2    // connect 1st stepper motor driver direction pins to 2
+#define stepPin1 3   // connect 1st stepper motor driver step pin to 3
+#define dirPin2 4    // connect 1st stepper motor driver direction pin to 4
+#define stepPin2 7   // connect 1st stepper motor driver step pin to
+#define delay2 36000  // define delay time in ms for stepper motor code
+
+
+
+
+// Servo motor code from EEL3003 Canvas Announcements provided by Dr. Virguez
+Servo myservo;  // create servo object to control a servo
+// twelve servo objects can be created on most boards
+
+
+
+
+// Speaker Module + Servo Motor Setup Code (Ren)
+
+
+#define option1 A1  // connect option 1 button to A1
+#define option2 A2  // connect option 2 button to A2
+#define option3 A3  // connect option 3 button to A3
+int pos = 0;        // variable to store the servo position
+int c = 0;          // variable to store current button number
+int x = 0;          // variable to store target button number
+int n = 0;          // number of times button is pressed to reach target
+const int t = 3;    // total number of buttons = 3    **for future projects: this can be changed based on # of songs in the list!
+
+
+
+
+//Liquid Crystal Display Setup Code
+// the LCD display has 20 columns and 4 rows
+LiquidCrystal_I2C lcd(0x27, 20, 4);
+
+
+
+
+void setup() {
+  //For servo motor pressing sound button
+  Serial.begin(9600);  //can be used to verify which sections of the code are being reached
+  myservo.write(0);   // initializes servo position to be at 0
+  myservo.attach(9);  //attaches the servo on pin 9 to the servo object
+
+
+  // Setting up step and direction pins for 2 different stepper motors
+  // each stepper motor controls one Degree of Freedom for the robotic arm
+  pinMode(stepPin1, OUTPUT);
+  pinMode(dirPin1, OUTPUT);
+  pinMode(stepPin2, OUTPUT);
+  pinMode(dirPin2, OUTPUT);
+
+
+
+
+  // initialize the 3 buttons used for menu selection as pullup configuration
+  pinMode(option1, INPUT_PULLUP);
+  pinMode(option2, INPUT_PULLUP);
+  pinMode(option3, INPUT_PULLUP);
+
+
+
+
+
+
+// LCD code from https://www.youtube.com/watch?v=RZOqqbT_r3k
+  // Initialize the LCD screen
+  lcd.init();
+  // Turn on the backlight
+  lcd.backlight();
+  // Print text on menu for users to select
+  lcd.setCursor(0, 0); // set cursor to first row and first column
+  lcd.print("Please select option"); // print text on LCD for user prompt
+  lcd.setCursor(0, 1); // set cursor to second row and first column
+  lcd.print("1. The Metamorphosis"); // print text on LCD for option 1
+  lcd.setCursor(0, 2); // set cursor to third row and first column on LCD
+  lcd.print("2. The Deep"); // print text on LCD for option 2
+  lcd.setCursor(0, 3); // set cursor to fourth row and first column on LCD
+  lcd.print("3. Zen Blossoms"); // print text on LCD for option 3
+}
+
+
+
+
+
+
+// Linked List coded by Ren; debugged by Kevin
+void loop() {
+  // if button for option 1 is pressed, set target button = 1
+  if (digitalRead(option1) == LOW) {
+    x = 1; // target button = 1 when button is pressed
+    reset();  // set the most recent button pressed as the current button; used for tracking
+  }
+
+
+
+
+  // if option 2 is pressed, target button = 2
+  else if (digitalRead(option2) == LOW) {
+    x = 2;
+    reset();  // set current button equal to previous target
+  }
+  // if option 3 is pressed, target button = 3
+  else if (digitalRead(option3) == LOW) {
+    x = 3;
+    reset();  // set current button equal to previous target
+  }
+
+
+
+
+// Stepper motor Code is coded by Kevin; source inspiration from: https://youtu.be/d-u_mzvw_eY?si=EkiZDb1Mze27SOf9
+  // stepper motors move at different paces to create different patterns in the sand
+  // patterns based on this desmos site: https://www.desmos.com/calculator/tjqus1rlf7
+  if (x == 1) {
+    // Pattern 1: The Metamorphosis. q < y; will create floral spiral pattern
+    for (int q = 0; q < 1; q++) {
+      digitalWrite(stepPin1, HIGH);
+      delayMicroseconds(delay2);
+      digitalWrite(stepPin1, LOW);
+      delayMicroseconds(delay2);
+    }
+    for (int y = 0; y < 12; y++) {
+      digitalWrite(stepPin2, HIGH);
+      delayMicroseconds(delay2);
+      digitalWrite(stepPin2, LOW);
+      delayMicroseconds(delay2);
+    }
+  }
+   // Pattern 2: The Deep; will create fibonacci spiral
+   else if (x == 2) {
+    for (int q = 0; q < 10; q++) {
+      digitalWrite(stepPin1, HIGH);
+      delayMicroseconds(delay2);
+      digitalWrite(stepPin1, LOW);
+      delayMicroseconds(delay2);
+    }
+    for (int y = 0; y < 1; y++) {
+      digitalWrite(stepPin2, HIGH);
+      delayMicroseconds(delay2);
+      digitalWrite(stepPin2, LOW);
+      delayMicroseconds(delay2);
+    }
+  }
+ 
+  // Pattern 3: Zen Blossoms; will create floral spiral with less petals
+  else if (x == 3) {
+    // create patterns in the sand
+    for (int q = 0; q < 1; q++) {
+      digitalWrite(stepPin1, HIGH);
+      delayMicroseconds(delay2);
+      digitalWrite(stepPin1, LOW);
+      delayMicroseconds(delay2);
+    }
+    for (int y = 0; y < 8; y++) {
+      digitalWrite(stepPin2, HIGH);
+      delayMicroseconds(delay2);
+      digitalWrite(stepPin2, LOW);
+      delayMicroseconds(delay2);
+    }
+  }
+}
+
+
+// Linked List coded by Ren
+// this function is called earlier in the code to reset the current position as the previously denoted target position after pressing the button
+void reset() {
+  //if the target button is greater than the current, press button x-c times.
+  //if the target button is less than the current, press button t-c+x times
+  if (x > c) {
+    pressButton(x - c);
+  } else if (x < c) {
+    pressButton(t - c + x);
+  }
+  c = x;  // after button is pressed, change current = target. the loop repeats again.
+}
+
+
+// inspired from ELEGOO Servo motor code
+// this function is called earlier in the code to press the button to the speaker module to play music
+void pressButton(int number_of_presses) {
+  for (int i = 0; i < number_of_presses; i++) {
+    myservo.write(0); //initial position
+    delay(500); // wait 0.5s
+    myservo.write(42); // hits speaker module button
+    delay(500); // wait 0.5s
+    myservo.write(0); // return to initial position
+  }
+}
+
+
