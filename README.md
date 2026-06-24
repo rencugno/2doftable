@@ -6,6 +6,7 @@ This project showcases a dynamic kinetic sand table, feaaturing a 2 degree of fr
 Our project features several inputs and outputs serving as the main components, as well as supporting components not directly involved in user input. Our product aims to promote mindfulness and improved mental health. As we have both personally experienced, students may feel overwhelmed due to being swamped with exams, reports, deadlines, lab meetings, and work schedules. With so many people feeling as though there isn't enough time in a day, we wanted to create something that withstands time, and reminds us of the natural cycles we are all part of in life- cycles that will all eventually come to an end. 
 
 The product has 3 designs to choose from: The Metamorphosis, The Deep, and Zen Blossoms (all inspired by the Tetris Soundtrack!) BTW: The Metamorphosis is a great book, would recommend reading :) Users are able to see all 3 options on the LCD display, and select using buttons (1, 2, 3). When each button is pressed, 3 of the following different things occur:
+
   **1) The robotic arm which is connected to 2 different stepper motors, changes patterns.
   2) The music soundtrack changes
   3) An additional servo motor is used to press the button in order to change the soundtrack**
