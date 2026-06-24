@@ -1,12 +1,40 @@
 Challenges and How We Overcame Them:
-1) Using 2 stepper drivers simultaneously: Since both degrees of the robotic arm required a separate stepper motor, they also required different stepper motor drivers. Trying to move both stepper motors at the same time was quite difficult, as external sources seemed to not match our current problem. We attempted to model this using inverse kinematic equations, where we parametrized the patterns given and coded for different equations and rpms of the stepper motors using the AccelStepper library. However, this code was quite complex, long, and crashed the computer due to the amount of storage it took up. In the end, we opted for a much simpler code where we could still have elegant patterns, but by changing the pace at which each motor rotated, we could also control the size of the spiral, number of petals, as well as the overall shape (just like a spirograph!). 
+1) Using 2 stepper drivers simultaneously: 
+Since both degrees of the robotic arm required a separate stepper motor, they also required different stepper motor drivers. 
+Trying to move both stepper motors at the same time was quite difficult, as external sources seemed to not match our current 
+problem. We attempted to model this using inverse kinematic equations, where we parametrized the patterns given and coded for 
+different equations and rpms of the stepper motors using the AccelStepper library. However, this code was quite complex, long, 
+and crashed the computer due to the amount of storage it took up. In the end, we opted for a much simpler code where we could
+still have elegant patterns, but by changing the pace at which each motor rotated, we could also control the size of the spiral, 
+number of petals, as well as the overall shape (just like a spirograph!). 
 
-2) Menu selection error: The original code in the source code was reversed, which caused the value at 0 (low) to shuffle throughout patterns, and when the button was pressed, the shuffle would stop. We changed this in our prototype so that when the button was pressed, the patterns would change instead of it being vis versa. We eventually also changed the menu to display all 3 patterns at once in our final project, since we had a 4x20 LCD display. Future projects however can still use the prototyped code, but we decided to switch for functionality purposes.
+2) Menu selection error: 
+The original code in the source code was reversed, which caused the value at 0 (low) to shuffle throughout patterns, and when 
+the button was pressed, the shuffle would stop. We changed this in our prototype so that when the button was pressed, the 
+patterns would change instead of it being vis versa. We eventually also changed the menu to display all 3 patterns at once in 
+our final project, since we had a 4x20 LCD display. Future projects however can still use the prototyped code, but we decided 
+to switch for functionality purposes.
 
-3) Linked Listing: All the songs on the speaker module can only be indexed sequentially. They cannot be skipped from song 1 to song 3; they have to be shuffled through sequentially. The problem arises when a user attempts to press button 2 despite previously being on button 3. To solve this problem, we created an “if else” conditional statement, where we introduced 4 variables: t = total buttons (3), c = current button, x = target button, and n = number of times speaker module button is pressed. If x <= c, then then the button will have to shuffle through the rest of the buttons until it reaches the target, so n = t - c + x. Else if x > c, then the pattern can resume normally, and the button is pressed n = x -c. Although we only had 3 buttons and could have easily coded for each scenario, this function allows future projects to expand the number of options while still maintaining functionality (and maintaining storage space).
+3) Linked Listing: 
+All the songs on the speaker module can only be indexed sequentially. They cannot be skipped from song 1 to song 3; they have 
+to be shuffled through sequentially. The problem arises when a user attempts to press button 2 despite previously being on button 3. 
+To solve this problem, we created an “if else” conditional statement, where we introduced 4 variables: t = total buttons (3), 
+c = current button, x = target button, and n = number of times speaker module button is pressed. If x <= c, then then the button 
+will have to shuffle through the rest of the buttons until it reaches the target, so n = t - c + x. Else if x > c, then the pattern 
+can resume normally, and the button is pressed n = x -c. Although we only had 3 buttons and could have easily coded for each scenario, 
+this function allows future projects to expand the number of options while still maintaining functionality (and maintaining storage space).
 
-4) Speaker Module playing: The speaker module is not a circuit element in the sense that it is directly connected to the arduino board. The speaker is able to exist on its own, but users of the product would have to press 2 different buttons (one for the pattern, the other for the sound) if they wanted the “full experience”. To improve functionality, we wanted to integrate the speaker module as part of the circuit as well. We attempted to disconnect the button and replace it with a transistor. However, we did not have the correct cable to make that connection and had to opt for a different plan. Instead, we used a servo motor to press the button for us. The servo motor was mounted to the floor of the table with the button mounted along the range of motion  of the servo horn. As the required to press the button was not properly defined, the servo motor continually turned into the button until it stalled and broke from the torque. Once the servo motor was replaced, a
+4) Speaker Module playing: 
+The speaker module is not a circuit element in the sense that it is directly connected to the arduino board. The speaker is able 
+to exist on its own, but users of the product would have to press 2 different buttons (one for the pattern, the other for the sound) 
+if they wanted the “full experience”. To improve functionality, we wanted to integrate the speaker module as part of the circuit as well. 
+We attempted to disconnect the button and replace it with a transistor. However, we did not have the correct cable to make that connection 
+and had to opt for a different plan. Instead, we used a servo motor to press the button for us. The servo motor was mounted to the floor 
+of the table with the button mounted along the range of motion of the servo horn. The range of motion required to press the button was not 
+properly defined, which caused the servo motor to continually turn onto the button until it stalled and broke from torque overload. 
+Once the servo motor was replaced, we carefully tinkered with different starting positions after 0 (ie: 5, 4, 3, 2...) but 1 ended up being
+the sweet spot (not too much torque to overload the servo, not too little to where the button would not be pressed, but just enough!)
 
-Funnily enough, Ren’s first attempt using the servo motor failed miserably, because despite the servo motor being able to press the button, there was too much torque, which caused the servo motor to break. Luckily, Kevin had a spare, and we were able to reconvene with a different servo motor by strategically defining its starting position. We tinkered with servo motor positions until we found the sweet spot (not too much torque, but not too little to where the button wouldn’t press, but just enough!). 
-
-5) Stepper motor didn’t have enough torque to overcome the friction of the bearing: Kevin redesigned the bearing for less friction, and used a larger stepper motor, as well as a 3:1 gear ratio to increase torque to allow the gears to move properly.
+5) Stepper motor didn’t have enough torque to overcome the friction of the bearing: 
+We redesigned the bearing for less friction, and used a larger stepper motor, as well as a 3:1 gear ratio to increase torque to allow 
+the gears to move properly.
