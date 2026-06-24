@@ -10,7 +10,7 @@ The product has 3 designs to choose from: The Metamorphosis, The Deep, and Zen B
 
   **1) The robotic arm which is connected to 2 different stepper motors, changes patterns.**
 
-  **2) The music soundtrack changes**
+  **2) The music soundtrack from an integrated speaker module changes**
 
  **3) An additional servo motor is used to press the button in order to change the soundtrack.**
 
