@@ -1,6 +1,5 @@
 # Kinetic Sand Table
-Lauren Cugno (cugno.lauren@ufl.edu)
-Kevin Tang (ke.tang@ufl.edu)
+Lauren Cugno (cugno.lauren@ufl.edu) & Kevin Tang (ke.tang@ufl.edu)
 <img width="760" height="425" alt="image" src="https://github.com/user-attachments/assets/a06c97dd-f9cb-495b-9cfb-7d987573663a" />
 
 This project showcases a dynamic kinetic sand table, feaaturing a 2 degree of freedom robotic arm, elegantly tracing infite patterns in a circular sandbox, which is 3D printed using PLA filament. 
